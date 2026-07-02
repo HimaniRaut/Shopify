@@ -1,0 +1,57 @@
+version: '3.8'
+
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: Shopify-mongodb
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodb_data:/data/db
+    healthcheck:
+      test: ["CMD", "mongosh", "--eval", "db.adminCommand('ping')"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 30s
+    networks:
+      - shopify-network
+
+  migration:
+    image: himani1224/Shopify-migration:latest
+    build:
+      context: .
+      dockerfile: scripts/Dockerfile.migration
+    container_name: shopify-migration
+    env_file:
+      - .env.local
+    depends_on:
+      mongodb:
+        condition: service_healthy
+    networks:
+      - shopify-network
+
+  app:
+    image: himani1224/Shopify-app:latest 
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: shopify-app
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env.local
+    depends_on:
+      migration:
+        condition: service_completed_successfully
+    networks:
+      - shopify-network
+    restart: unless-stopped
+
+networks:
+  shopify-network:
+    name: shopify-network
+
+volumes:
+  mongodb_data:
+    name: mongodb_data

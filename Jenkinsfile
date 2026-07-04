@@ -5,8 +5,8 @@ pipeline {
     
     environment {
         // Updated image names for QBShop project (DEV)
-        DOCKER_IMAGE_NAME = 'himani1224/Shopify-app'
-        DOCKER_MIGRATION_IMAGE_NAME = 'himani1224/Shopify-migration'
+        DOCKER_IMAGE_NAME = 'himani1224/shopify-app'
+        DOCKER_MIGRATION_IMAGE_NAME = 'himani1224/shopify-migration'
         DOCKER_IMAGE_TAG = "${BUILD_NUMBER}"
         GITHUB_CREDENTIALS = credentials('github-credentials')
         GIT_BRANCH = "main"

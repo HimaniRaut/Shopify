@@ -5,6 +5,7 @@ metadata:
   namespace: shopify
   annotations:
     nginx.ingress.kubernetes.io/proxy-body-size: '50m'
+    cert-manager.io/cluster-issuer: 'letsencrypt-prod'
 spec:
   rules:
     http:

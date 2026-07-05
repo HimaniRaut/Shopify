@@ -2,7 +2,7 @@
 
 # Update system and install core packages
 sudo apt update
-sudo apt install -y fontconfig openjdk-17-jre 
+sudo apt install -y fontconfig openjdk-21-jre 
 
 # Jenkins installation
 sudo wget -O /usr/share/keyrings/jenkins-keyring.asc \

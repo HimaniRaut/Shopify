@@ -1,20 +1,20 @@
 apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
-  annotations:
-    argocd.argoproj.io/tracking-id: shopify:networking.k8s.io/Ingress:shopify/shopify-ingress
-    cert-manager.io/cluster-issuer: letsencrypt-prod
-    nginx.ingress.kubernetes.io/proxy-body-size: 50m
   name: shopify-ingress
   namespace: shopify
+  annotations:
+    nginx.ingress.kubernetes.io/proxy-body-size: '50m'
+    cert-manager.io/cluster-issuer: letsencrypt-prod
 spec:
+  ingressClassName: nginx
   rules:
-    http:
+  - http:
       paths:
-        - backend:
-            service:
-              name: shopify-service
-              port:
-                number: 80
-          path: /
-          pathType: Prefix
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: shopify-service
+            port:
+              number: 80

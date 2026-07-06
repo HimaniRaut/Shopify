@@ -17,7 +17,7 @@ const roboto = Roboto({
 });
 
 export const metadata: Metadata = {
-  title: "QualiBytesShop - Your One-Stop Shopping Destination",
+  title: "Shopify - Your One-Stop Shopping Destination",
   description: "Shop the latest trends in fashion, electronics, and more.",
 };
 

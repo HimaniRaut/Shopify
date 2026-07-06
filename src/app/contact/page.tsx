@@ -7,7 +7,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "Contact",
   description:
-    "QualiBytesShop is the user-friendly Next.js eCommerce template perfect for launching your online store. With its clean design and customizable options, QualiBytesShop makes selling online a breeze. Start building your dream store today and boost your online presence effortlessly!",
+    "Shopiy is the user-friendly Next.js eCommerce template perfect for launching your online store. With its clean design and customizable options, QualiBytesShop makes selling online a breeze. Start building your dream store today and boost your online presence effortlessly!",
 };
 
 const ContactPage = () => {
@@ -41,7 +41,7 @@ const ContactPage = () => {
                 asChild
               >
                 <a
-                  href="https://qualibytes.com"
+                  href="https://shopify.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -54,7 +54,7 @@ const ContactPage = () => {
                 asChild
               >
                 <a
-                  href="https://qualibytes.com"
+                  href="https://shopify.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >
@@ -67,7 +67,7 @@ const ContactPage = () => {
                 asChild
               >
                 <a
-                  href="https://qualibytes.com"
+                  href="https://shopify.com"
                   target="_blank"
                   rel="noopener noreferrer"
                 >

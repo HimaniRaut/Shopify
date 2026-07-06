@@ -10,7 +10,7 @@ const Logo = () => {
 
       <div>
         <p className="text-xl font-semibold whitespace-nowrap">
-          Quali<span className="text-blue-600">Bytes</span>
+          Shop<span className="text-blue-600">ify</span>
         </p>
       </div>
     </Link>

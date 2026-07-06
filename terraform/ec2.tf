@@ -20,6 +20,16 @@ resource "aws_default_vpc" "default" {
 
 }
 
+resource "aws_subnet" "subnet1" {
+  vpc_id            = data.aws_default_vpc.default.id
+  cidr_block        = "172.31.0.0/20"
+  availability_zone = "ap-south-1c"
+
+  tags = {
+    Name = "default-vpc-subnet-1"
+  }
+}
+
 resource "aws_security_group" "allow_user_to_connect" {
   name        = "allow TLS"
   description = "Allow user to connect"
@@ -81,6 +91,7 @@ resource "aws_instance" "testinstance" {
   ami             = data.aws_ami.os_image.id
   instance_type   = var.instance_type 
   key_name        = aws_key_pair.deployer.key_name
+  subnet_id       = aws_subnet.subnet1.id
   security_groups = [aws_security_group.allow_user_to_connect.name]
   user_data = file("${path.module}/install_tools.sh")
   tags = {

@@ -15,7 +15,7 @@ spec:
     spec:
       containers:
         - name: shopify-app
-          image: himani1224/shopify-app
+          image: himani1224/shopify-app:3
           imagePullPolicy: Always
           ports:
             - containerPort: 3000
